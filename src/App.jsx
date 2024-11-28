@@ -23,7 +23,7 @@ export default function App() {
     event.preventDefault();
     console.log(event.target[1].value);
     try {
-      await axios.post("http://localhost:8000/", inputs);
+      await axios.post("https://fp03mccj-8000.uks1.devtunnels.ms/", inputs);
     } catch (error) {
       console.error(error);
     }
