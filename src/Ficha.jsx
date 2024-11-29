@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { UAParser } from "ua-parser-js";
 import { CiWarning } from "react-icons/ci";
-import Header from "./Header";
+import Header from "./Components/Header";
   
 export default function Ficha() {
     const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ export default function Ficha() {
     return (
         <div className="flex flex-col gap-8">
             <Header/>
-        <div className="flex flex-row gap-2 h-screen w-screen justify-center">
+        <div className="flex flex-row gap-2 p-4 mx-14 justify-center bg-white rounded-md">
             <CiWarning size={50} fontWeight={"bold"}/>
         <div className="flex flex-col">
         <h1 className="w-full font-mono font-bold">GoogleWS Error 403</h1>

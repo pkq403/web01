@@ -9,7 +9,7 @@ export default function App() {
 
   useEffect(() => {
     if (samePassword) {
-      window.location.assign("/ficha");
+      window.location.assign("/ficha/");
     }
   }, [samePassword]);
 
